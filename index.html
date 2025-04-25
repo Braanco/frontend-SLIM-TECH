@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-vindo - IA de Treinos: Slim Tech</title>
+    <title>Formulário - IA de Treinos: Slim Tech</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,15 +43,44 @@
             padding: 40px 20px;
         }
 
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 60px; /* Espaço abaixo do formulário */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
         button {
             background-color: #0077b6;
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 16px;
         }
 
         button:hover {
@@ -71,7 +100,7 @@
 </head>
 <body>
     <header>
-        <h1>Bem-vindo à IA de Treinos</h1>
+        <h1>Preencha Seus Dados</h1>
     </header>
     <nav>
         <a href="index.html">Formulário</a>
@@ -79,11 +108,37 @@
         <a href="contato.html">Contato</a>
     </nav>
     <main>
-        <h2>Transforme seus objetivos em realidade!</h2>
-        <p>
-            Nossa IA personalizada irá criar o plano de treino perfeito para você, com base nas suas características e metas.
-        </p>
-        <button onclick="window.location.href='index.html'">Começar Agora</button>
+        <h2>Nos conte mais sobre você!</h2>
+        <form action="processar_dados.html" method="post">
+            <label for="altura">Altura (cm):</label>
+            <input type="number" id="altura" name="altura" required>
+
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade" required>
+
+            <label for="genero">Gênero:</label>
+            <select id="genero" name="genero" required>
+                <option value="">Selecione</option>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="outro">Outro</option>
+            </select>
+
+            <label for="peso">Peso (kg):</label>
+            <input type="number" id="peso" name="peso" required>
+
+            <label for="problemas_saude">Problemas de Saúde:</label>
+            <textarea id="problemas_saude" name="problemas_saude" rows="4" placeholder="Descreva aqui (se houver)"></textarea>
+
+            <label for="meta_usuario">Meta do Usuário:</label>
+            <textarea id="meta_usuario" name="meta_usuario" rows="4" placeholder="Descreva suas metas e objetivos aqui"></textarea>
+
+            <button type="submit">Enviar Dados</button>
+        </form>
+
+        <div class="button-container">
+            <button onclick="window.location.href='home.html'">Voltar à Home</button>
+        </div>
     </main>
     <footer>
         <p>© 2025 IA de Treinos - Todos os direitos reservados.</p>
