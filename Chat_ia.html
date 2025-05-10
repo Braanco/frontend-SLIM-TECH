@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat IA - Slim Tech</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .ia-message {
+            background-color: #0077b6;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: #f4f4f4;
+            color: #333;
+            align-self: flex-end;
+        }
+
+        form {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005f87;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container" id="chat">
+        <!-- Área de chat vazia para receber mensagens da IA -->
+    </div>
+
+    <form onsubmit="addMessage(event)">
+        <input type="text" id="user-input" placeholder="Digite sua mensagem..." required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <!-- Botão para voltar à página Home -->
+    <div class="button-container">
+        <button onclick="window.location.href='home.html'">Voltar à Página Principal</button>
+    </div>
+
+    <script>
+        function addMessage(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input');
+            const chatContainer = document.getElementById('chat');
+
+            // Adiciona a mensagem do usuário
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user-message';
+            userMessage.textContent = userInput.value;
+            chatContainer.appendChild(userMessage);
+
+            // Limpa o campo de input
+            userInput.value = '';
+
+            // Rola para o final do chat
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>
