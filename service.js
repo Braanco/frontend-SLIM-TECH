@@ -32,7 +32,9 @@ async function sendData(datas) {
         }
 
         const data = await response.json();
+        sessionStorage.setItem('resposta', JSON.stringify(data))
         alert("Sucesso!");
+        window.location.href = "Chat_ia.html"
         console.log('resposta salva:', data);
     } catch (error) {
         console.error(error);
@@ -40,3 +42,8 @@ async function sendData(datas) {
         loading.style.display = "none"; // sempre esconde o loading
     }
 }
+
+
+
+
+

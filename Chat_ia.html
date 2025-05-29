@@ -82,7 +82,7 @@
 
     <form onsubmit="addMessage(event)">
         <input type="text" id="user-input" placeholder="Digite sua mensagem..." required>
-        <button type="submit">Enviar</button>
+        <button type="submit" id="enviar-mensagem">Enviar</button>
     </form>
 
     <!-- Botão para voltar à página Home -->
@@ -109,5 +109,8 @@
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
     </script>
+    <script src="Chat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 </body>
 </html>
